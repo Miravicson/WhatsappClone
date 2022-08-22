@@ -75,7 +75,7 @@ export default [{
   }],
   lastMessage: {
     id: 'm5',
-    content: 'I would be happy',
+    content: 'I would be happy to have you in my  team today weretetet',
     createdAt: '2020-09-30T14:48:00.000Z',
   }
 }, {

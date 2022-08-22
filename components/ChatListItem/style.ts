@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   midContainer: {
     justifyContent: 'space-around',
     paddingVertical: 5,
+    maxWidth: '60%'
   },
   username: {
     fontWeight: 'bold',
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 12,
-    color: 'grey'
+    color: 'grey',
   }
 });
 
