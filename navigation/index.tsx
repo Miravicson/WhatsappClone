@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import {
   NavigationContainer,
   DefaultTheme,
@@ -20,7 +20,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { MainTabNavigator } from "./MainTabNavigator";
-
+import ChatRoomScreen from "../screens/ChatRoomScreen";
 
 export default function Navigation({
   colorScheme,
@@ -84,9 +84,38 @@ function RootNavigator() {
         }}
       />
       <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={({ route, navigation }) => {
+          return {
+            title: route.params.user.name,
+            headerRight: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: 100,
+                  justifyContent: "space-between",
+                  marginRight: 10,
+                }}
+              >
+                <FontAwesome5 name="video" size={22} color={"white"} />
+                <MaterialIcons name="call" size={22} color={"white"} />
+                <MaterialCommunityIcons
+                  name="dots-vertical"
+                  size={22}
+                  color={"white"}
+                />
+              </View>
+            ),
+          };
+        }}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
-        options={{ title: "Oops!" }}
+        options={{
+          title: "Oops",
+        }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
