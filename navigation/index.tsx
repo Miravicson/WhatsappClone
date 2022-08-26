@@ -21,6 +21,7 @@ import { RootStackParamList, RootTabParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { MainTabNavigator } from "./MainTabNavigator";
 import ChatRoomScreen from "../screens/ChatRoomScreen";
+import ContactsScreen from "../screens/ContactsScreen";
 
 export default function Navigation({
   colorScheme,
@@ -111,11 +112,34 @@ function RootNavigator() {
         }}
       />
       <Stack.Screen
+        name="Contacts"
+        component={ContactsScreen}
+        options={{
+          title: "Select Contact",
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                width: 60,
+                justifyContent: "space-between",
+                marginRight: 10,
+              }}
+            >
+              <Octicons name="search" size={22} color={"white"} />
+              <MaterialCommunityIcons
+                name="dots-vertical"
+                size={22}
+                color={"white"}
+              />
+            </View>
+          ),
+        }}
+      />
+
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
-        options={{
-          title: "Oops",
-        }}
+        options={{ title: "Oops" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />

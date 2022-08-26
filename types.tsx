@@ -19,6 +19,7 @@ declare global {
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   ChatRoom: { id: string; user: User };
+  Contacts: undefined,
   Modal: undefined;
   NotFound: undefined;
 };
@@ -40,6 +41,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   >;
 
 export type User = {
+  status?: string;
   id: string;
   name: string;
   imageUri: string;
@@ -49,7 +51,7 @@ export type Message = {
   id: string;
   content: string;
   createdAt: number | string;
-  user?: Pick<User, "id" | "name">;
+  user?: Pick<User, "id" | "name" | "status">;
 };
 
 export type ChatRoom = {
