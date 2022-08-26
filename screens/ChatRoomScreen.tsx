@@ -1,6 +1,7 @@
 import { useRoute } from "@react-navigation/native";
 import { FlatList, ImageBackground } from "react-native";
 import ChatMessage from "../components/ChatMessage";
+import InputBox from "../components/InputBox";
 import Chats from "../data/Chats";
 import { Message, RootTabScreenProps } from "../types";
 const BG = require("../assets/images/BG.png");
@@ -19,6 +20,7 @@ export default function ChatRoomScreen({}: RootTabScreenProps<"Chats">) {
         keyExtractor={keyExtractor}
         // inverted
       />
+      <InputBox />
     </ImageBackground>
   );
 }
